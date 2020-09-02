@@ -1,0 +1,71 @@
+// prati iz kog pokusaja je korisnik pogodio broj
+let howManyAttenpts = 0
+
+document.querySelector('#submit').addEventListener('click',() =>{
+  
+
+  console.log('radi')
+
+  const numberToGuess = 45; 
+  
+
+  // uzmi od korisnika broj
+   let value = parseInt(document.getElementById('game').value)
+   console.log('korisnicki broj ' + typeof value)
+
+  
+
+  // broj mora da bude izmedju 0 i 100 ako nije onda prikazi poruku 
+   if(value >= 0 && value <= 100){
+
+    // ako korisnik pogodi broj(izkljuci dugme za pokusaj brojeva i pokazi korisniku opet da igra)
+    if(numberToGuess === value){
+
+      document.getElementById('message').innerHTML = howManyAttenpts <= 1 ? `<p> You won, you had ${howManyAttenpts} attempt  </p>` : `<p> You won, you had ${howManyAttenpts} attempts  </p>`
+
+
+      document.getElementById('submit').innerHTML = 'play again'
+      document.getElementById('game').disabled = true
+
+      // na klik korisnika ponovo igraj
+      document.getElementById('submit').addEventListener('click',()=>{
+        window.location.reload()
+      })
+
+
+    }else{
+
+     // brojevi koji su blize broju koji treba da se pogodi  
+      let close1 = numberToGuess - 10
+      let close2 = numberToGuess + 10
+      // 
+
+
+      // ako su blizi broju izbaci poruku blizu ste broja, ako nisu blizu izbaci poruku daleko ste od broja
+         if( close1 <= value && close2 >= value){
+           document.getElementById('message').innerHTML = '<p> You are close to number </p>'
+           howManyAttenpts++
+
+
+         }else{
+          document.getElementById('message').innerHTML = '<p> You are far to number </p>'
+          howManyAttenpts++
+
+         }
+    }
+
+    // validizacija ako korisnik unese ono sto ne treba
+   }else{
+
+      document.getElementById('validMessage').innerHTML = '<p class="showMessage" id="newMessage">You can not enter this number</p> ' 
+
+      // obirsati poruku posle 2 sekunde
+      setTimeout(()=>{
+ 
+         document.getElementById('newMessage').outerHTML = ''
+
+      },2000)
+   }
+
+})
+

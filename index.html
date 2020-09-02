@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container{
+      width: 300px;
+      margin: auto;
+    }
+    #container input{
+      padding: 10px;
+      width: 210px;
+    }
+
+    #container p {
+      font-size: 18px;
+    }
+
+    #container p span {
+      font-size: 22px;
+    }
+    button{
+      display: block;
+      margin-top: 10px;
+      width: 233px;
+      padding: 5px;
+      cursor: pointer;
+     
+    }
+
+    button:hover{
+      color: white;
+      background-color: black;
+      transition: 1.1s;
+ }
+    .showMessage{
+      color: red;
+      font-size: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="container">
+
+    <div id="validMessage"></div>
+
+    <p>
+      From how many attenpts will you guess the numbers
+      between <span>0</span> and <span>100</span>
+    </p>
+    <input type="number" id="game">
+    <button id="submit">Click</button>
+
+    <div id="message"></div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+ 
+  
+</body>
+</html>
